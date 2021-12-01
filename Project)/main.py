@@ -41,6 +41,7 @@ def api_get_customer_info(customer_id):
 
 
 # get all customers
+@app.get("/customer")
 def api_get_all_customers():
     customers_as_customer = customer_service.service_get_all_customers()
     customers_as_dictionary = []
