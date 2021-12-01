@@ -4,8 +4,8 @@ from entities.Customers import Customers
 
 customer_dao = CustomersPostgresDao()
 
-customer = Customers("test", "test", 0, 2)
-updated_cus = Customers("was", "update", 3, 3)
+customer = Customers("test", "test", 0,)
+updated_cus = Customers("was", "update", 3,)
 
 
 def test_create_customer():
@@ -14,12 +14,12 @@ def test_create_customer():
 
 
 def test_get_customer_info():
-    cus = customer_dao.get_customer_info(1)
+    cus = customer_dao.get_customer_info(2)
     assert cus.first_name == "get"
 
 
 def test_delete_customer_info():
-    cus_del = customer_dao.delete_customer(2)
+    cus_del = customer_dao.delete_customer(4)
     assert cus_del
 
 
