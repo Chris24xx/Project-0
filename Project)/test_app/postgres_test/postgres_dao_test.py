@@ -1,11 +1,10 @@
 from data_access_layer.Implementation_classes.customers_postgres_dao import CustomersPostgresDao
 from entities.Customers import Customers
 
-
 customer_dao = CustomersPostgresDao()
 
-customer = Customers("test", "test", 0,)
-updated_cus = Customers("was", "update", 3,)
+customer = Customers("test", "test", 0, )
+updated_cus = Customers("was", "update", 3, )
 
 
 def test_create_customer():
@@ -26,3 +25,8 @@ def test_delete_customer_info():
 def test_update():
     update = customer_dao.update_info(updated_cus)
     assert update.first_name == updated_cus.first_name
+
+
+def test_get_all_customers():
+    customers = customer_dao.get_all_customers()
+    assert len(customers) > 2
