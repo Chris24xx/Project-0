@@ -4,6 +4,9 @@ from custom_exception.custom_exceptions import DuplicateId
 from data_access_layer.Implementation_classes.customers_postgres_dao import CustomersPostgresDao
 from entities.Customers import Customers
 from service_layer.postgres_imp.postgres_service_imp import PostgresServiceImp
+import logging
+
+logging.basicConfig(filename="records.log", level=logging.DEBUG,format=f"%(asctime)s %(levelname)s %(message)s")
 
 app: Flask = Flask(__name__)
 customer_dao = CustomersPostgresDao()
@@ -48,7 +51,7 @@ def api_get_all_customers():
     for customers in customers_as_customer:
         customer_dict = customers.dict()
         customers_as_dictionary.append(customer_dict)
-        return jsonify(customers_as_dictionary)
+    return jsonify(customers_as_dictionary)
 
 
 # update information

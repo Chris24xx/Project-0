@@ -1,10 +1,12 @@
 class BankAccount:
-    def __init__(self, account_id):
+    def __init__(self, account_id, customer_id, balance=0):
         self.account_id = account_id
-        self.balance = 0
+        self.customer_id = customer_id
+        self.balance = balance
 
     def dictionary(self):
         return {
             "balance": self.balance,
-            "accountId": self.account_id
+            "accountId": self.account_id,
+            "customerId": self.customer_id
         }
