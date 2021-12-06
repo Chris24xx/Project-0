@@ -175,7 +175,7 @@ def api_transfer_into_bank_account(transfer_id: str, receive_id: str):
         return error2
 
 
-@app.get("/accounts/customer/<customer_id>")
+@app.get("/accounts/customers")
 def api_get_all_accounts_by_customer_id(customer_id):
     accounts_as_accounts = bank_service.get_all_accounts_by_customer_id(int(customer_id))
     accounts_as_dict = []
